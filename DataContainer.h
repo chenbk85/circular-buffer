@@ -19,8 +19,8 @@ public:
     DataContainer<T_width>& operator / (const double constant);
     DataContainer<T_width>& operator += (const DataContainer &rhs);
     DataContainer<T_width>& operator -= (const DataContainer &data);
-    /* DataContainer<T_width>& Pow(const double exponent); */
-    /* DataContainer<T_width>& Sqrt(); */
+    DataContainer<T_width> Pow(const double exponent);
+    DataContainer<T_width> Sqrt();
     void Print();
 };
 

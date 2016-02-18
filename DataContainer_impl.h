@@ -11,8 +11,8 @@ DataContainer<T_width> & DataContainer<T_width>::operator - (const DataContainer
 template <size_t T_width>
 DataContainer<T_width> & DataContainer<T_width>::operator / (const double constant) {
     DataContainer<T_width> result = *this;
-    for (auto &d: result)
-        d /= constant;
+    for (auto &r: result)
+        r /= constant;
     return result;
 }
 
@@ -31,8 +31,21 @@ DataContainer<T_width> & DataContainer<T_width>::operator-=(const DataContainer 
     return *this;
 }
 
-/* DataContainer<T_width> Pow(const double exponent); */
-/* DataContainer<T_width> Sqrt(); */
+template <size_t T_width>
+DataContainer<T_width> DataContainer<T_width>::Pow(const double exponent) {
+    DataContainer<T_width> result = *this;
+    for (auto &r: result)
+        r = std::pow(r, exponent);
+    return result;
+}
+
+template <size_t T_width>
+DataContainer<T_width> DataContainer<T_width>::Sqrt() {
+    DataContainer<T_width> result = *this;
+    for (auto &r: result)
+        r = std::sqrt(r);
+    return result;
+}
 
 template <size_t T_width>
 void DataContainer<T_width>::Print() {
