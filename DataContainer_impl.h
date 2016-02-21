@@ -18,6 +18,7 @@ const DataContainer<T_width> DataContainer<T_width>::operator / (const double co
 
 template <size_t T_width>
 DataContainer<T_width> & DataContainer<T_width>::operator += (const DataContainer &rhs) {
+    // Not the prettiest iterator, but C++ doesn't have a zip function, it would seem :(
     for (unsigned int i = 0; i < this->size(); i++) {
         (*this)[i] = (*this)[i] + rhs[i];
     }
@@ -25,6 +26,7 @@ DataContainer<T_width> & DataContainer<T_width>::operator += (const DataContaine
 }
 template <size_t T_width>
 DataContainer<T_width> & DataContainer<T_width>::operator-=(const DataContainer &rhs) {
+    // Not the prettiest iterator, but C++ doesn't have a zip function, it would seem :(
     for (unsigned int i = 0; i < this->size(); i++) {
         (*this)[i] = (*this)[i] - rhs[i];
     }
