@@ -1,15 +1,15 @@
 
 template <size_t T_width>
-DataContainer<T_width> & DataContainer<T_width>::operator + (const DataContainer<T_width> &rhs) {
+const DataContainer<T_width> DataContainer<T_width>::operator + (const DataContainer<T_width> &rhs) {
     return DataContainer<T_width>(*this) += rhs;
 }
 template <size_t T_width>
-DataContainer<T_width> & DataContainer<T_width>::operator - (const DataContainer<T_width> &rhs) {
+const DataContainer<T_width> DataContainer<T_width>::operator - (const DataContainer<T_width> &rhs) {
     return DataContainer<T_width>(*this) -= rhs;
 }
 
 template <size_t T_width>
-DataContainer<T_width> & DataContainer<T_width>::operator / (const double constant) {
+const DataContainer<T_width> DataContainer<T_width>::operator / (const double constant) {
     DataContainer<T_width> result = *this;
     for (auto &r: result)
         r /= constant;
@@ -32,7 +32,7 @@ DataContainer<T_width> & DataContainer<T_width>::operator-=(const DataContainer 
 }
 
 template <size_t T_width>
-DataContainer<T_width> DataContainer<T_width>::Pow(const double exponent) {
+const DataContainer<T_width> DataContainer<T_width>::Pow(const double exponent) {
     DataContainer<T_width> result = *this;
     for (auto &r: result)
         r = std::pow(r, exponent);
@@ -40,7 +40,7 @@ DataContainer<T_width> DataContainer<T_width>::Pow(const double exponent) {
 }
 
 template <size_t T_width>
-DataContainer<T_width> DataContainer<T_width>::Sqrt() {
+const DataContainer<T_width> DataContainer<T_width>::Sqrt() {
     DataContainer<T_width> result = *this;
     for (auto &r: result)
         r = std::sqrt(r);
@@ -48,9 +48,9 @@ DataContainer<T_width> DataContainer<T_width>::Sqrt() {
 }
 
 template <size_t T_width>
-void DataContainer<T_width>::Print() {
-    for (auto d: *this)
-        std::cout << d << ' ';
-    std::cout << std::endl;
+inline std::ostream& operator << (std::ostream &os, const DataContainer<T_width> &data) {
+    for (auto d: data)
+        os << d << ' ';
+    return os;
 }
 
