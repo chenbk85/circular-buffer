@@ -1,10 +1,10 @@
 CC=g++-4.7
 CFLAGS=-c -g -std=c++11 -Wall
 LDFLAGS=
-SOURCES=honeybee.cpp
+SOURCES=informal_test.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 DEPS:=$(OBJECTS:.o=.d)
-EXECUTABLE=honeybee
+EXECUTABLE=informal_test
 
 all: $(SOURCES) $(EXECUTABLE)
 
